@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <link rel="stylesheet" href="main2.css">
+</head>
+<body>
+    <nav class="page1">
+        <div id="home" class="hero">
+            <header>
+                <div class="logo">~LOGO~</div> 
+                <div class="menu">
+                    <ul>
+                        <li><a href="#home">HOME</a></li>
+                        <li><a href="about_final.html">ABOUT</a></li>
+                        <li><a href="Recipe_page_final.html">RECIPES</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                        <li><a href="3forms.html">LOGIN</a></li>
+                    </ul>
+                </div>
+            </header>
+            <script type="text/javascript">
+                window.addEventListener("scroll", function(){
+                    var header = document.querySelector("header");
+                    header.classList.toggle("sticky", window.scrollY > 0);
+                });
+            </script>
+            <div class="text">
+                <div class="txt">
+                    <h1 class="one">Taste Indian<br>Cuisine Together<br>with <span style="color: rgb(255, 179, 0);">Mom's Recipes</span></h1>
+                </div>
+            </div>
+        </div>
+        <div class="food-category">
+            <div class="category-item">
+                <a href="Recipe_page_final.html#breakfast" class="category-link">
+                    <img src="breakfast.jpg" alt="Breakfast">
+                    <div class="category-label">BREAKFAST</div>
+                </a>
+            </div>
+            <div class="category-item">
+                <a href="Recipe_page_final.html#main_course" class="category-link">
+                    <img src="lunch.jpg" alt="Lunch">
+                    <div class="category-label">LUNCH</div>
+                </a>
+            </div>
+            <div class="category-item">
+                <a href="Recipe_page_final.html#dessert" class="category-link">
+                    <img src="dessert.jpg" alt="Dessert">
+                    <div class="category-label">DESSERT</div>
+                </a>
+            </div>
+            <div class="category-item">
+                <a href="Recipe_page_final.html#bev" class="category-link">
+                    <img src="bevrage.jpg" alt="Beverage">
+                    <div class="category-label">BEVERAGE</div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="contact">
+        <footer class="footer">
+            <div class="container">
+                <div class="logos">
+                    <img src="logo-removebg-preview.png" alt="Mom's Love " class="logo">
+                </div>
+                <div class="footer-column">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#">Pages</a></li>
+                        <li><a href="about_final.html">About Us</a></li>
+                        <li><a href="d3.html">Recipes</a></li>
+                    </ul>
+                    <p>📞 <strong>777-888-999</strong></p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Pages</a></li>
+                    </ul>
+                    <p>📧 <strong>contact@vegan.com</strong></p>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+
+    </div>     
+</body>
+</html>
