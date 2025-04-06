@@ -1,0 +1,522 @@
+<html>
+    <head>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html{
+                scroll-behavior: smooth;
+            }
+            body {
+                font-family:Arial, Helvetica, sans-serif;
+            }
+            .page1{
+                position: relative;
+                z-index: 1;
+                background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('bgmf - Copy (3).png') center/cover no-repeat;
+            }
+
+            header{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                transition: 0.6s;
+                padding: 30px 100px;
+                background: rgba(145,75,43,0.404);
+                z-index: 1000;
+            }
+
+            header .logo{
+                position: relative;
+                font-weight: 700;
+                color: #fff;
+                text-decoration: none;   
+                letter-spacing: 2px;
+                transition: 0.6s; 
+            }
+            header ul{
+                position: relative;
+                display: flex;   
+                justify-content:center;
+            }
+            header ul li{
+                position: relative;
+                list-style: none;
+                margin-left: 60px;
+            }
+
+            header ul li a{
+                position: relative;
+                margin: 0 15px;
+                text-decoration: none;
+                color: #fff;
+                letter-spacing: 2px;
+                font-weight: 500px;
+                transition: 0.6s;
+                font-family: cursive;
+            }
+            .menu{
+                font-family: "sans-serif",cursive;
+
+            }
+            .menu ul li a:hover{
+                color: gold;
+                transition: 0.3s;
+            }
+
+            header.sticky{
+                padding:18px 5px;
+                background: rgb(71, 36, 15);
+            }
+
+            header.sticky .logo,
+            header.sticky ul li a{
+                color: white;
+            }
+                            
+            body {
+                background-image: url(black.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                font-family: Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-height: 100vh;
+                padding-top: 150px;
+            }
+
+            h2 {
+                color: bisque;
+                font-size: 35px;
+                text-align: center;
+            }
+
+            /* 🔹 Each section container (like Breakfast, Main Course, etc.) */
+            .bfast-container, .maincourse-container, .bev-container, .dessert-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 50px;
+                width: 100%;
+                max-width: 1000px;
+                justify-items: center;
+                margin-bottom: 200px;  /* Adds spacing between sections */
+            }
+
+            .bfast-container img, .maincourse-containerimg, .bev-container img, .dessert-container img{
+                width: 10%;
+                height:100%;
+                object-fit:cover;
+                border-radius: 5px;
+
+            }
+
+            /* 🔹 Section titles */
+            .section {
+                grid-column: 1 / -1; /* Makes title span full width */
+                text-align: center;
+                font-size: 30px;
+                font-weight: bold;
+                color: rgb(235, 225, 161);
+                font-family:"Lucida Handwriting",cursive;
+                margin: 20px;
+            }
+
+            /* 🔹 Recipe cards */
+            .recipe {
+                position: relative;
+                overflow: hidden;
+                border-radius: 10px;
+            }
+
+            .recipe img {
+                width: 100%;
+                display: block;
+                border-radius: 10px;
+                transition: 0.4s;
+            }
+
+            .recipe:hover img {
+                filter: brightness(50%);
+                transform: scale(1.1);
+            }
+
+            /* 🔹 Recipe description overlay */
+            .recipe .description {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                opacity: 0;
+                transition: 0.3s;
+            }
+
+            .recipe:hover .description {
+                opacity: 1;
+            }
+
+            /* 🔹 Hide extra recipes by default */
+            .more-recipes {
+                display: none;
+            }
+
+            /* 🔹 "View More" button styling */
+            .more-button {
+                grid-column: 1 / -1; /* Centers the button */
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .view-button {
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                background-color: rgb(209, 175, 22);
+                border: none;
+                border-radius: 5px;
+                transition: 0.3s;
+            }
+
+            .view-button:hover {
+                background-color: #d1a67a;
+            }
+
+             /* ======= Footer Section ======= */
+
+            .footer {
+            background-color: #4B240F;
+            color: white;
+            padding: 50px 0;
+            margin-top: 50px;
+            text-align: center;
+            width: 100%; /* Ensure it takes full width */
+        }
+
+        .footer-container {
+            width: 100%; /* Full width */
+            max-width: 1200px; /* Optional: Control max width for large screens */
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0 20px; /* Add padding for better spacing */
+        }
+
+
+            .footer-column {
+                flex: 1;
+                min-width: 220px;
+                margin: 10px;
+            }
+
+            .footer-column h3 {
+                margin-bottom: 15px;
+                font-size: 18px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            .footer-column ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .footer-column ul li {
+                margin-bottom: 8px;
+            }
+
+            .footer-column ul li a {
+                text-decoration: none;
+                color: white;
+                font-size: 15px;
+                transition: 0.3s;
+            }
+
+            .footer-column ul li a:hover {
+                color: #FFC107;
+            }
+            .logo-section p {
+                 margin-top: 10px;
+            }
+
+            .logo img{
+                width: 220px;
+                height: 250px;
+            }
+            /* ======= Social Icons in Footer ======= */
+            .social-icons {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 15px;
+            }
+
+            .social-icons a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 45px;
+                height: 45px;
+                background-color: white;
+                border-radius: 50%;
+                transition: 0.3s ease;
+                text-decoration: none;
+            }
+
+            .social-icons a:hover {
+                transform: scale(1.1);
+            }
+
+            .social-icons a ion-icon {
+                font-size: 24px;
+                color: #4B240F;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <!-- <a href="#" class="logo"></a> -->
+            <img src="" alt="Logo" class="logo">
+        <div class="menu">
+            <ul>
+                <li><a href="main2.html">HOME</a></li>
+                <li><a href="about_final.html">ABOUT</a></li>
+                <li><a href="#recipe">RECIPES</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+                <li><a href="#">LOGIN</a></li>
+            </ul>
+        </div>
+    </header>
+
+        <div id="recipe">
+            <div class="bfast-container">
+                <div id="bfast" class="section">Breakfast</div>
+                <a href="B3.html" class="recipe">
+                    <img src="rava-kichadi-recipe-1a.jpg" alt="Kichadi">
+                    <div class="description">Kichadi</div>
+                </a>
+                <a href="B1.html" class="recipe">
+                    <img src="masala_dosa.jpeg" alt="Masala Dosa">
+                    <div class="description">Masala Dosa</div>
+                </a>
+                <a href="B2.html" class="recipe">
+                    <img src="pongal.jpeg" alt="Pongal">
+                    <div class="description">Pongal</div>
+                </a>
+                <a href="B6.html" class="recipe more-recipes">
+                    <img src="paratha.jpeg" alt="Stuffed Paratha">
+                    <div class="description">Stuffed Paratha</div>
+                </a>
+                <a href="B5.html" class="recipe more-recipes">
+                    <img src="Poha.jpeg" alt="Poha">
+                    <div class="description">Poha</div>
+                </a>
+                <a href="B4.html" class="recipe more-recipes">
+                    <img src="puttu.jpeg" alt="Puttu">
+                    <div class="description">Puttu</div>
+                </a>
+                <div class="more-button">
+                    <button id="view-more_bfast" class="view-button">View More</button>
+                </div>
+            </div>
+            
+            <div class="maincourse-container">
+                <div id="main_course" class="section">Main Course</div>
+                <a href="L1.html" class="recipe">
+                    <img src="chicken_bir.jpg" alt="Chicken Biryani">
+                    <div class="description">Chicken Biryani</div>
+                </a>
+                <a href="L2.html" class="recipe">
+                    <img src="bisi_bele.jpg" alt="Bisi Bele Bath">
+                    <div class="description">Bisi Bele Bath</div>
+                </a>
+                <a href="L3.html" class="recipe">
+                    <img src="mush_bir.jpg" alt="Mushroom Biryani">
+                    <div class="description">Mushroom Biryani</div>
+                </a>
+                <a href="L4.html" class="recipe">
+                    <img src="rajma.jpg" alt="Rajma Chawal">
+                    <div class="description">Rajma Chawal</div>
+                </a>
+                <a href="L5.html" class="recipe">
+                    <img src="panner_butter.jpg" alt="Paneer Butter Masala">
+                    <div class="description">Paneer Butter Masala</div>
+                </a>
+                <a href="L6.html" class="recipe">
+                    <img src="chieck_gravy.jpg" alt="Chicken gravy">
+                    <div class="description">Chicken gravy</div>
+                </a>
+                <a href="L7.html" class="recipe more-recipes">
+                    <img src="dal_makhani.jpg" alt="Dal Makhani">
+                    <div class="description">Dal Makhani</div>
+                </a>
+                <a href="L8.html" class="recipe more-recipes">
+                    <img src="rogan_josh.jpg" alt="Rogan Josh">
+                    <div class="description">Rogan Ghosh</div>
+                </a>
+                <a href="#" class="recipe more-recipes">
+                    <img src="variety2.jpeg" alt="Variety Rice">
+                    <div class="description">Variety Rice</div>
+                </a>
+                <a href="L9.html" class="recipe more-recipes">
+                    <img src="fish_curry.jpg" alt="Fish Curry">
+                    <div class="description">Fish Curry</div>
+                </a>
+                <a href="L10.html" class="recipe more-recipes">
+                    <img src="aloo_gobi.jpg" alt="Aloo-Gobi">
+                    <div class="description">Aloo-Gobi</div>
+                </a>
+                <a href="L11.html" class="recipe more-recipes">
+                    <img src="chole_puri.jpg" alt="Chole-Puri">
+                    <div class="description">Chole-Puri</div>
+                </a>
+                <div class="more-button">
+                    <button id="view-more_main" class="view-button">View More</button>
+                </div>
+            </div>
+            <div class="bev-container">
+                <div id="bev" class="section">Beverages</div>
+                <a href="dr1.html" class="recipe">
+                    <img src="tea.jpg" alt="Masala Tea">
+                    <div class="description">Masala Tea</div>
+                </a>
+                <a href="dr3.html" class="recipe">
+                    <img src="coffee.jpg" alt="Filter Coffee">
+                    <div class="description">Filter Coffee</div>
+                </a>
+                <a href="dr4.html" class="recipe">
+                    <img src="lassi.jpg" alt="Lassi">
+                    <div class="description">Lassi</div>
+                </a>
+                <a href="dr2.html" class="recipe more-recipes">
+                    <img src="cold_coffee.jpg" alt="Cold coffee">
+                    <div class="description">Cold coffee</div>
+                </a>
+                <a href="dr5.html" class="recipe more-recipes">
+                    <img src="smoothie.jpg" alt="Fruit Smoothie">
+                    <div class="description">Fruit Smoothie</div>
+                </a>
+                <a href="dr6.html" class="recipe more-recipes">
+                    <img src="hot_cocoa.jpg" alt="Hot Chocolate">
+                    <div class="description">Hot Chocolate</div>
+                </a>
+                <div class="more-button">
+                    <button id="view-more_bev" class="view-button">View More</button>
+                </div>
+            </div>
+            
+            <div class="dessert-container">
+                <div id="dessert" class="section">Sweet Tooth</div>
+                <a href="D4.html" class="recipe">
+                    <img src="gajar_halwa.jpg" alt="Gajar Ka Halwa">
+                    <div class="description">Gajar Ka Halwa</div>
+                </a>
+                <a href="D5.html" class="recipe">
+                    <img src="kheer.jpg" alt="Kheer/Payasam">
+                    <div class="description">Kheer/Payasam</div>
+                </a>
+                <a href="D6.html" class="recipe">
+                    <img src="brownie.jpg" alt="Brownie Bites">
+                    <div class="description">Brownie Bites</div>
+                </a>
+                <a href="D1.html" class="recipe more-recipes">
+                    <img src="gujhia.jpg" alt="Gujhia">
+                    <div class="description">Gujhia</div>
+                </a>
+                <a href="D2.html" class="recipe more-recipes">
+                    <img src="mysore_pak.jpg" alt="Mysore Pak">
+                    <div class="description">Mysore Pak</div>
+                </a>
+                <a href="D7.html" class="recipe more-recipes">
+                    <img src="unni_appam.jpg" alt="Unni Appam">
+                    <div class="description">Unni Appam</div>
+                </a>
+                <div class="more-button">
+                    <button id="view-more_dessert" class="view-button">View More</button>
+                </div>
+            </div>
+    
+        </div>
+
+        <!-- Footer -->
+<footer class="footer" id="contact">
+    <div class="footer-container">
+        <div class="logo">
+            <img src="logo-removebg-preview.png" alt="Mom's Love " class="logo">
+        </div>
+
+        <div class="footer-column">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Services</a></li>
+            </ul>
+            <p>📞 <strong>777-888-999</strong></p>
+        </div>
+
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Booking</a></li>
+                <li><a href="#">Pages</a></li>
+            </ul>
+            <p>📧 <strong>contact@vegan.com</strong></p>
+        </div>
+
+        <div class="footer-column">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    function toggleRecipes(buttonId, containerClass) {
+        document.getElementById(buttonId).addEventListener("click", function () {
+            let recipes = document.querySelectorAll(`.${containerClass} .more-recipes`);
+
+            recipes.forEach(recipe => {
+                recipe.style.display = (recipe.style.display === "none" || recipe.style.display === "") ? "block" : "none";
+            });
+
+            this.textContent = this.textContent === "View More" ? "View Less" : "View More";
+        });
+    }
+
+    // Apply function to each section
+    toggleRecipes("view-more_bfast", "bfast-container");
+    toggleRecipes("view-more_main", "maincourse-container");
+    toggleRecipes("view-more_bev", "bev-container");
+    toggleRecipes("view-more_dessert", "dessert-container");
+});
+    window.addEventListener("scroll", function(){
+        var header = document.querySelector("header");
+        header.classList.toggle("sticky", window.scrollY > 0);
+        });
+
+
+     </script>
+     <!-- Icons Script -->
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+</html>
